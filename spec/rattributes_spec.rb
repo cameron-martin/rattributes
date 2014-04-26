@@ -16,7 +16,7 @@ describe Rattributes do
       expect(class_with_attributes).to respond_to(:attr, :other_attr)
     end
 
-    it 'should have attributes with given values' do
+    it 'should set attributes with given values' do
       expect(class_with_attributes.attr).to eq(:value)
       expect(class_with_attributes.other_attr).to eq(:other_value)
     end
