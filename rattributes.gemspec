@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["cameronmartin123@gmail.com"]
   spec.description   = %q{Read-only structs for ruby}
   spec.summary       = spec.description
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/cameron-martin/rattributes"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
