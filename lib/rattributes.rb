@@ -1,9 +1,9 @@
-class Rattributes
+class Rattributes < Module
 
   VERSION = '0.0.1'
 
-  def self.new(*attributes)
-    Module.new do
+  def initialize(*attributes)
+    super() do
 
       define_singleton_method :included do |other|
         other.class_eval do
