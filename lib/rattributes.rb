@@ -3,6 +3,7 @@ class Rattributes < Module
   VERSION = '0.0.1'
 
   def initialize(*attributes)
+    @attributes = attributes
     super() do
 
       define_singleton_method :included do |other|
@@ -19,4 +20,11 @@ class Rattributes < Module
 
     end
   end
+
+  def inspect
+    "#{self.class.to_s}(#{@attributes.map(&:inspect).join(', ')})"
+  end
+
+  alias_method :to_s, :inspect
+
 end
