@@ -1,6 +1,6 @@
 class Rattributes < Module
 
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 
   def initialize(*attributes)
     @attributes = attributes
