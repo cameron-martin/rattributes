@@ -34,9 +34,16 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+require 'rattributes'
+
 class Car
   include Rattributes.new(:engine, :brakes)
 end
+
+car = Car.new(engine: 'an engine', brakes: 'the brakes')
+
+car.engine # 'an engine'
+car.brakes # 'the brakes'
 ```
 
 
