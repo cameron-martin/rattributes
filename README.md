@@ -1,6 +1,6 @@
 # Rattributes
 
-Read-only structs for ruby
+Read-only structs for ruby.
 
 Simplifies the following pattern with a bit of metaprogramming:
 
