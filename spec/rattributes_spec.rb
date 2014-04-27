@@ -2,32 +2,29 @@
 
 require 'rattributes'
 
-class ClassWithAttributes
-  include Rattributes.new(:attr, :other_attr)
-end
-
 describe Rattributes do
 
   context 'when included in a class' do
 
-    let(:class_with_attributes) { ClassWithAttributes.new(attr: :value, other_attr: :other_value) }
-
-    it 'should create readers' do
-      expect(class_with_attributes).to respond_to(:attr, :other_attr)
+    let(:class_with_attributes) do
+      Class.new { include Rattributes.new(:attr, :other_attr) }
     end
 
-    it 'should set attributes with given values' do
-      expect(class_with_attributes.attr).to eq(:value)
-      expect(class_with_attributes.other_attr).to eq(:other_value)
-    end
+    subject { class_with_attributes.new(attr: :value, other_attr: :other_value) }
+
+    it { should respond_to(:attr, :other_attr) }
+    its(:attr) { should == :value }
+    its(:other_attr) { should == :other_value }
 
   end
 
-  let(:rattributes) { Rattributes.new(:attr, :other_attr) }
+  context 'as a standalone module' do
 
-  it 'should have descriptive name' do
-    expect(rattributes.to_s).to eq('Rattributes(:attr, :other_attr)')
-    expect(rattributes.inspect).to eq('Rattributes(:attr, :other_attr)')
+    subject { Rattributes.new(:attr, :other_attr) }
+
+    its(:to_s) { should == 'Rattributes(:attr, :other_attr)' }
+    its(:inspect) { should == 'Rattributes(:attr, :other_attr)' }
+
   end
 
 end
