@@ -1,6 +1,4 @@
-#require 'spec_helper'
-
-require 'rattributes'
+require 'spec_helper'
 
 describe Rattributes do
 
