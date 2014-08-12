@@ -6,11 +6,7 @@ class Rattributes < Module
     @attributes = attributes
     super() do
 
-      define_singleton_method :included do |other|
-        other.class_eval do
-          attr_reader *attributes
-        end
-      end
+      attr_reader *attributes
 
       define_method :initialize do |data|
         attributes.each do |attribute|
